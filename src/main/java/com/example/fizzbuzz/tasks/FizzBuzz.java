@@ -22,13 +22,13 @@ public class FizzBuzz {
         (number % 5 == 0) ? "Buzz" : String.valueOf(number);
   }
 
-  private String checkFizzBuzz(Map<Integer,String> map, int number){
+  public String checkFizzBuzz(Map<Integer,String> map, int number){
     String result = "";
     for (final Map.Entry<Integer,String> entry: map.entrySet()
          ) {
       final Integer key = entry.getKey();
       final String value = entry.getValue();
-      result = (key % 15 == 0) ? "FizzBuzz" : (number % key == 0) ? value : String.valueOf(number);
+      result = (number % 15 == 0) ? "FizzBuzz" : (number % key == 0) ? value : String.valueOf(number);
 
     }
     return result;

@@ -3,6 +3,8 @@ package com.example.fizzbuzz.tasks;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FizzBuzzTest {
@@ -61,6 +63,12 @@ class FizzBuzzTest {
   @Test
   public void shouldReturn12IframeAre1And2() {
     assertEquals("12", fizzBuzz.generate(1, 2).trim());
+  }
+
+  @Test
+  public void mapTestTen(){
+    Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
+    assertEquals("FizzBuzz", fizzBuzz.checkFizzBuzz(map, 15));
   }
 
 
