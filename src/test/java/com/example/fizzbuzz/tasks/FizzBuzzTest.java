@@ -62,7 +62,7 @@ class FizzBuzzTest {
 
   @Test
   public void shouldReturn12IframeAre1And2() {
-    assertEquals("12", fizzBuzz.generate(1, 2).trim());
+    assertEquals("12", fizzBuzz.generate(1, 2));
   }
 
   @Test
@@ -74,6 +74,11 @@ class FizzBuzzTest {
   public void mapTestWith5(){
     Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
     assertEquals("Buzz", fizzBuzz.checkFizzBuzz(map, 5));
+  }
+  @Test
+  public void mapTestWith20(){
+    Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
+    assertEquals("Buzz", fizzBuzz.checkFizzBuzz(map, 20));
   }
 @Test
   public void mapTestWith30(){
@@ -89,6 +94,11 @@ class FizzBuzzTest {
   public void mapTestWith13(){
     Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
     assertEquals("13", fizzBuzz.checkFizzBuzz(map, 13));
+  }
+  @Test
+  public void mapTestWith14(){
+    Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
+    assertEquals("14", fizzBuzz.checkFizzBuzz(map, 14));
   }
 
 

@@ -28,9 +28,27 @@ public class FizzBuzz {
          ) {
       final Integer key = entry.getKey();
       final String value = entry.getValue();
-      result = (number % 15 == 0) ? "FizzBuzz" : (number % key == 0) ? value : String.valueOf(number);
+
+      if ((number % 15 == 0)) {
+       return  "FizzBuzz";
+      } else {
+        if ((key == 3) & (number % key == 0) | (key == 5) & (number % key == 0)) return  value;
+        else result = String.valueOf(number);
+      }
 
     }
     return result;
+  }
+
+  public static void main(String[] args) {
+    FizzBuzz fizzBuzz = new FizzBuzz();
+    Map<Integer,String> map = Map.of(3,"Fizz",5,"Buzz");
+    System.out.println(fizzBuzz.checkFizzBuzz(map,12));
+    System.out.println(fizzBuzz.checkFizzBuzz(map,13));
+    System.out.println(fizzBuzz.checkFizzBuzz(map,14));
+    System.out.println(fizzBuzz.checkFizzBuzz(map,15));
+    System.out.println(fizzBuzz.checkFizzBuzz(map,16));
+    System.out.println(fizzBuzz.checkFizzBuzz(map,99));
+    System.out.println(fizzBuzz.checkFizzBuzz(map,100));
   }
 }
