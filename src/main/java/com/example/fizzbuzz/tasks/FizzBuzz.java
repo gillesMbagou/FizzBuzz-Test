@@ -1,5 +1,7 @@
 package com.example.fizzbuzz.tasks;
 
+import java.util.Map;
+
 public class FizzBuzz {
 
   public String generate(int debut,int fin) {
@@ -18,5 +20,17 @@ public class FizzBuzz {
     return (number % 15 == 0) ? "FizzBuzz" :
       (number % 3 == 0) ? "Fizz" :
         (number % 5 == 0) ? "Buzz" : String.valueOf(number);
+  }
+
+  private String checkFizzBuzz(Map<Integer,String> map, int number){
+    String result = "";
+    for (final Map.Entry<Integer,String> entry: map.entrySet()
+         ) {
+      final Integer key = entry.getKey();
+      final String value = entry.getValue();
+      result = (key % 15 == 0) ? "FizzBuzz" : (number % key == 0) ? value : String.valueOf(number);
+
+    }
+    return result;
   }
 }
