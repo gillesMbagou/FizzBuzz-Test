@@ -70,6 +70,26 @@ class FizzBuzzTest {
     Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
     assertEquals("FizzBuzz", fizzBuzz.checkFizzBuzz(map, 15));
   }
+  @Test
+  public void mapTestWith5(){
+    Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
+    assertEquals("Buzz", fizzBuzz.checkFizzBuzz(map, 5));
+  }
+@Test
+  public void mapTestWith30(){
+    Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
+    assertEquals("FizzBuzz", fizzBuzz.checkFizzBuzz(map, 30));
+  }
+@Test
+  public void mapTestWith12(){
+    Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
+    assertEquals("Fizz", fizzBuzz.checkFizzBuzz(map, 12));
+  }
+@Test
+  public void mapTestWith13(){
+    Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
+    assertEquals("13", fizzBuzz.checkFizzBuzz(map, 13));
+  }
 
 
 }
