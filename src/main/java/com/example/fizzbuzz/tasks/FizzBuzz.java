@@ -1,6 +1,7 @@
 package com.example.fizzbuzz.tasks;
 
 import java.util.Map;
+import java.util.function.Function;
 
 public class FizzBuzz {
 
@@ -39,6 +40,34 @@ public class FizzBuzz {
     }
     return result;
   }
+  // Using functional programming version
+  public static Function<Integer,String> fizzbuzzFunc(Map<Integer,String> map){
+    
+     return (number ->  {
+            String result = "";
+            for (final Map.Entry<Integer,String> entry: map.entrySet()
+            ) {
+                final Integer key = entry.getKey();
+                final String value = entry.getValue();
+
+                if ((number % 15 == 0)) {
+                    return  "FizzBuzz";
+                } else {
+                    if ((key == 3) & (number % key == 0) | (key == 5) & (number % key == 0)) return  value;
+                    else result = String.valueOf(number);
+                }
+
+            }
+            return result;});
+  }
+  
+  // Method to print all result between 1 and 100 as require.
+   public static void printTest(Function<Integer,String> fizz){
+              int i=100;
+        while(i-- >1)
+         System.out.println(fizz.andThen(s-> s.toUpperCase()).apply(i));
+     }
+  
 
   public static void main(String[] args) {
     FizzBuzz fizzBuzz = new FizzBuzz();
@@ -50,5 +79,10 @@ public class FizzBuzz {
     System.out.println(fizzBuzz.checkFizzBuzz(map,16));
     System.out.println(fizzBuzz.checkFizzBuzz(map,99));
     System.out.println(fizzBuzz.checkFizzBuzz(map,100));
+    
+    // calling the functional implementation
+      Map<Integer,String> mapTest = Map.of(3, "Fizz", 5, "Buzz", 2, "Out", 4, "Nor");
+
+        printTest(fizzbuzzFunc(mapTest));
   }
 }
