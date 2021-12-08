@@ -9,6 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FizzBuzzTest {
 
+  Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz",7,"Axon",2,"SAGA");
+
   FizzBuzz fizzBuzz;
   @BeforeEach
   void setUp() {
@@ -99,6 +101,56 @@ class FizzBuzzTest {
   public void mapTestWith14(){
     Map<Integer, String> map = Map.of(3,"Fizz",5,"Buzz");
     assertEquals("14", fizzBuzz.checkFizzBuzz(map, 14));
+  }
+
+  @Test
+  public void fizzFunctionalWith_Values_FROM_1_To_30(){
+    //GIVEN a Map
+    int i=0;
+    StringBuilder result= new StringBuilder();
+    // When value range between 1 & 30
+    while (i++ < 30){
+      result.append(FizzBuzz.fizzbuzzFunc(map).apply(i));
+      if( (i%3 !=0) & (i%5 !=0) &( i%15 !=0)) {
+        System.out.print(i+"-");
+        assertEquals(String.valueOf(i), FizzBuzz.fizzbuzzFunc(map).apply(i));
+      }
+
+    }
+    // Then the result should be 12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz1617Fizz19BuzzFizz2223FizzBuzz26Fizz2829FizzBuzz
+    StringBuilder expected = new StringBuilder("12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz1617Fizz19BuzzFizz2223FizzBuzz26Fizz2829FizzBuzz");
+    assertEquals(0, result.compareTo(expected));
+
+  }
+  @Test
+  public void whenValueIs_15_shouldReturn_FizzBuzz(){
+    // Given 15
+    int valueGiven = 15;
+    // When apply function on value
+    final String result = FizzBuzz.fizzbuzzFunc(map).apply(valueGiven);
+    //Then should return FizzBuzz as output
+    String expected = "FizzBuzz";
+    assertEquals(expected, result);
+  }
+  @Test
+  public void whenValueIs_55_shouldReturn_Buzz(){
+    // Given 55
+    int valueGiven = 55;
+    // When apply function on value
+    final String result = FizzBuzz.fizzbuzzFunc(map).apply(valueGiven);
+    //Then should return Buzz as output
+    String expected = "Buzz";
+    assertEquals(expected, result);
+  }
+  @Test
+  public void whenValueIs_60_shouldReturn_FizzBuzz(){
+    // Given 60
+    int valueGiven = 60;
+    // When apply function on value
+    final String result = FizzBuzz.fizzbuzzFunc(map).apply(valueGiven);
+    //Then should return FizzBuzz as output
+    String expected = "FizzBuzz";
+    assertEquals(expected, result);
   }
 
 
