@@ -1,0 +1,7 @@
+
+# Vault pour les newbees.
+vault server -dev
+
+#vault log
+vaul userpass list
+
